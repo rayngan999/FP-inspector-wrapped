@@ -69,7 +69,7 @@ def get_fp_hashes(fp_list, fp_hash,nfp_hash):
 
 
 def main():
-    for i in range(2,11):
+    for i in range(3,11):
       #  if i == 0:
        #         continue
      
@@ -95,12 +95,12 @@ def main():
                 os.remove(filepath)
             analysis_directory = os.path.join(analysis_folder, analysis_name)
             
-            con = sqlite3.connect(db_addr)
+            con = sqlite3.connect(analysis_directory)
             con.row_factory = sqlite3.Row
             cur = con.cursor()
             try:
                 cur.execute("SELECT MAX(id) as max_id FROM javascript")
-            else:
+            except:
                 err_list.append(analysis_name)
                 continue
             convert_sql_tables_to_json.main(analysis_directory)
