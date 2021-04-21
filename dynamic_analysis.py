@@ -94,14 +94,8 @@ def main():
                 filepath = os.path.join( data_folder, filename)
                 os.remove(filepath)
             analysis_directory = os.path.join(analysis_folder, analysis_name)
-            
-            con = sqlite3.connect(analysis_directory)
-            con.row_factory = sqlite3.Row
-            cur = con.cursor()
-            try:
-                cur.execute("SELECT MAX(id) as max_id FROM javascript")
-            except:
-                err_list.append(analysis_name)
+        
+            if analysis_name.find('.sqlite') == -1:
                 continue
             convert_sql_tables_to_json.main(analysis_directory)
             extract_features_from_properties_training.main("./output/data", os.path.join(directory, "extra_data"))
