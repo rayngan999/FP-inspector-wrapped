@@ -72,7 +72,7 @@ def main():
     nfp_hash= []
     folderNames = ["beautifyTools", "clos_comp/simple", "clos_comp/advanced", "draftlogic", "jfogs",
     "js_obfus", "obfus_io/default", "obfus_io/high", "obfus_io/low", "obfus_io/medium", "original"]
-    analysis_folder  = "../Scripts-Replacing-Crawler/openWPM_data/" + folderNames[0] + "/all_sqlite/"
+    analysis_folder  = "../Results/" + folderNames[10] + "/all_sqlite/"
    
     
     directory = "./"
@@ -80,7 +80,8 @@ def main():
     
     # print(analysis_name)
 
-    for analysis_name in onlyfiles:
+    for x in range(1):
+        analysis_name = "83d7c6c27f7aae46379d401c0189cbf1.sqlite"
         data_folder = "output/data"
         for filename in os.listdir( data_folder):
             filepath = os.path.join( data_folder, filename)
@@ -102,17 +103,17 @@ def main():
         fp_list = []
         run_weka(results_file)
         get_fp_inst_num(results_file, fp_list)
-        get_fp_hashes(fp_list,cur_fp_hash,cur_nfp_hash)
+        get_fp_hashes(fp_list,fp_hash,nfp_hash)
 
-        with open('new_fingerprinting_domains.json') as f:
-            fp_domains = json.load(f)
-        for x in fp_domains:
-            if x in cur_fp_hash:
-                fp_hash.append(x)
-                print("FP-",x)
-            if x in cur_nfp_hash:
-                nfp_hash.append(x)
-                print("NFP-",x)
+#        with open('new_fingerprinting_domains.json') as f:
+#            fp_domains = json.load(f)
+#        for x in fp_domains:
+#            if x in cur_fp_hash:
+#                fp_hash.append(x)
+#                print("FP-",x)
+#            if x in cur_nfp_hash:
+#                nfp_hash.append(x)
+#                print("NFP-",x)
             
         #     if x == hash_name:
         #         cur_top_url = fp_domains[x][1]
@@ -122,20 +123,20 @@ def main():
         #         # print(fp_domains[x][0])
         #         print(x)
 
-        with open('nfp_hashes.json') as outfile:
-            data = json.load(outfile)
-        for x in cur_nfp_hash:
-            data.append(x)
+#        with open('nfp_hashes.json') as outfile:
+#            data = json.load(outfile)
+#        for x in cur_nfp_hash:
+#            data.append(x)
 
         with open('nfp_hashes.json','w') as outfile:
             json.dump(nfp_hash, outfile, indent=4)
 
-        with open('fp_hashes.json') as outfile:
-            data = json.load(outfile)
-        for x in cur_fp_hash:
-            data.append(x)
+#        with open('fp_hashes.json') as outfile:
+#            data = json.load(outfile)
+#        for x in cur_fp_hash:
+#            data.append(x)
         with open('fp_hashes.json','w') as outfile:
-            json.dump(data, outfile, indent=4)
+            json.dump(fp_hash, outfile, indent=4)
     
 
 
