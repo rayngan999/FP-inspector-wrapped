@@ -9,7 +9,7 @@ import csv
 import sqlite3
 import json
 import subprocess
-
+import arff
 
 
 def run_weka(results_file):
@@ -43,6 +43,7 @@ def get_fp_inst_num(results_file, fp_list):
                                 end = end + 1
 
                         fp_list.append(lines[start:end])
+                        #print(lines[start:end])
                         
         #                 num = num+1
                         
@@ -55,13 +56,14 @@ def get_fp_hashes(fp_list, fp_hash,nfp_hash):
         with open("./output/data/dynamic_features_with_mappings.csv", newline = '') as csv_file:
                 csv_reader = csv.reader(csv_file, delimiter=',')
                 line_count = 0
+                next(csv_reader)
                 for row in csv_reader:
                         
                         line_count += 1
-                        if str(line_count) in fp_list and f'{row[0]}' != "":
+                        if str(line_count) in fp_list and f'{row[0]}' != "" :
                                 print("FP:",f'{row[0]}')
                                 fp_hash.append(f'{row[0]}')
-                        elif str(line_count) not in fp_list and f'{row[0]}'!= "hash":
+                        elif str(line_count) not in fp_list:
                                 print("NONFP:",f'{row[0]}')
                                 nfp_hash.append(f'{row[0]}')
 
@@ -72,7 +74,7 @@ def main():
     nfp_hash= []
     folderNames = ["beautifyTools", "clos_comp/simple", "clos_comp/advanced", "draftlogic", "jfogs",
     "js_obfus", "obfus_io/default", "obfus_io/high", "obfus_io/low", "obfus_io/medium", "original"]
-    analysis_folder  = "../Results/" + folderNames[10] + "/all_sqlite/"
+    analysis_folder  = "../Results/" + folderNames[1] + "/all_sqlite/"
    
     
     directory = "./"
@@ -80,8 +82,9 @@ def main():
     
     # print(analysis_name)
 
-    for x in range(1):
-        analysis_name = "83d7c6c27f7aae46379d401c0189cbf1.sqlite"
+    for analysis_name in onlyfiles:
+   # for x in range(1):
+       # analysis_name = '83d7c6c27f7aae46379d401c0189cbf1.sqlite' 
         data_folder = "output/data"
         for filename in os.listdir( data_folder):
             filepath = os.path.join( data_folder, filename)
@@ -105,15 +108,15 @@ def main():
         get_fp_inst_num(results_file, fp_list)
         get_fp_hashes(fp_list,fp_hash,nfp_hash)
 
-#        with open('new_fingerprinting_domains.json') as f:
-#            fp_domains = json.load(f)
-#        for x in fp_domains:
-#            if x in cur_fp_hash:
-#                fp_hash.append(x)
-#                print("FP-",x)
-#            if x in cur_nfp_hash:
-#                nfp_hash.append(x)
-#                print("NFP-",x)
+        with open('new_fingerprinting_domains.json') as f:
+            fp_domains = json.load(f)
+        for x in fp_domains:
+            if x in cur_fp_hash:
+                fp_hash.append(x)
+                print("FP-",x)
+            if x in cur_nfp_hash:
+                nfp_hash.append(x)
+                print("NFP-",x)
             
         #     if x == hash_name:
         #         cur_top_url = fp_domains[x][1]

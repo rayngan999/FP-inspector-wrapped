@@ -105,13 +105,13 @@ def create_arff(top_dynamic_features_addr, all_dynamic_features_csv_addr, file_t
             if len(all_urls_unseen) == 0:
                 arff_header.append('@attribute ' + item +'{URL_N}')
             else:
+                #arff_header.append('@attribute ' + item +'{URL_N}')
                 arff_header.append('@attribute ' + item +
-                               ' {' + ','.join(all_urls_unseen) + '}')
+                                ' {' + ','.join(all_urls_unseen) + ', URL_N}')
         elif item == 'class':
             arff_header.append('@attribute ' + item + ' {FP,NONFP}')
         else:
             arff_header.append('@attribute ' + item + ' numeric')
-
     arff_header.append('')
     arff_header.append('@data')
     arff_header.append('')
