@@ -10,7 +10,7 @@ import sqlite3
 import json
 import subprocess
 import arff
-
+import shutil
 
 def run_weka(results_file):
         model = "./dynamic_1K_iteration_4.model"
@@ -69,78 +69,83 @@ def get_fp_hashes(fp_list, fp_hash,nfp_hash):
 
 
 def main():
-    
-    fp_hash = []
-    nfp_hash= []
-    folderNames = ["beautifyTools", "clos_comp/simple", "clos_comp/advanced", "draftlogic", "jfogs",
-    "js_obfus", "obfus_io/default", "obfus_io/high", "obfus_io/low", "obfus_io/medium", "original"]
-    analysis_folder  = "../Results/" + folderNames[1] + "/all_sqlite/"
-   
-    
-    directory = "./"
-    onlyfiles = [f for f in listdir(analysis_folder ) if isfile(join(analysis_folder , f))]
-    
-    # print(analysis_name)
+    for i in range(11):
+        if i == 0:
+                continue
+     
+            fp_hash = []
+            nfp_hash= []
+            folderNames = ["beautifyTools", "clos_comp/simple", "clos_comp/advanced", "draftlogic", "jfogs",
+            "js_obfus", "obfus_io/default", "obfus_io/high", "obfus_io/low", "obfus_io/medium", "original"]
+            analysis_folder  = "../Results/" + folderNames[i] + "/all_sqlite/"
 
-    for analysis_name in onlyfiles:
-   # for x in range(1):
-       # analysis_name = '83d7c6c27f7aae46379d401c0189cbf1.sqlite' 
-        data_folder = "output/data"
-        for filename in os.listdir( data_folder):
-            filepath = os.path.join( data_folder, filename)
-            os.remove(filepath)
-        analysis_directory = os.path.join(analysis_folder, analysis_name)
-        
-        convert_sql_tables_to_json.main(analysis_directory)
-        extract_features_from_properties_training.main("./output/data", os.path.join(directory, "extra_data"))
-        new_create_dynamic_arff_training_file.main("./output/data", os.path.join(directory, "extra_data"))
-        results_file = "./prediction_results.txt"
 
-        hash_name = analysis_name[:analysis_name.find(".sqlite")]
-        print(hash_name)
-        # get hash_name top url
-        # loop thru json to get all hashes from top url 
+            directory = "./"
+            onlyfiles = [f for f in listdir(analysis_folder ) if isfile(join(analysis_folder , f))]
 
-        cur_fp_hash =[]
-        cur_nfp_hash =[]
-        fp_list = []
-        run_weka(results_file)
-        get_fp_inst_num(results_file, fp_list)
-        get_fp_hashes(fp_list,fp_hash,nfp_hash)
-
-        with open('new_fingerprinting_domains.json') as f:
-            fp_domains = json.load(f)
-        for x in fp_domains:
-            if x in cur_fp_hash:
-                fp_hash.append(x)
-                print("FP-",x)
-            if x in cur_nfp_hash:
-                nfp_hash.append(x)
-                print("NFP-",x)
+            # print(analysis_name)
             
-        #     if x == hash_name:
-        #         cur_top_url = fp_domains[x][1]
-                
-        # for x in fp_domains:
-        #     if fp_domains[x][1] == cur_top_url:
-        #         # print(fp_domains[x][0])
-        #         print(x)
+            for analysis_name in onlyfiles:
+           # for x in range(1):
+               # analysis_name = '83d7c6c27f7aae46379d401c0189cbf1.sqlite' 
+                data_folder = "output/data"
+                for filename in os.listdir( data_folder):
+                    filepath = os.path.join( data_folder, filename)
+                    os.remove(filepath)
+                analysis_directory = os.path.join(analysis_folder, analysis_name)
 
-#        with open('nfp_hashes.json') as outfile:
-#            data = json.load(outfile)
-#        for x in cur_nfp_hash:
-#            data.append(x)
+                convert_sql_tables_to_json.main(analysis_directory)
+                extract_features_from_properties_training.main("./output/data", os.path.join(directory, "extra_data"))
+                new_create_dynamic_arff_training_file.main("./output/data", os.path.join(directory, "extra_data"))
+                results_file = "./prediction_results.txt"
 
-        with open('nfp_hashes.json','w') as outfile:
-            json.dump(nfp_hash, outfile, indent=4)
+                hash_name = analysis_name[:analysis_name.find(".sqlite")]
+                print(hash_name)
+                # get hash_name top url
+                # loop thru json to get all hashes from top url 
 
-#        with open('fp_hashes.json') as outfile:
-#            data = json.load(outfile)
-#        for x in cur_fp_hash:
-#            data.append(x)
-        with open('fp_hashes.json','w') as outfile:
-            json.dump(fp_hash, outfile, indent=4)
-    
+                cur_fp_hash =[]
+                cur_nfp_hash =[]
+                fp_list = []
+                run_weka(results_file)
+                get_fp_inst_num(results_file, fp_list)
+                get_fp_hashes(fp_list,fp_hash,nfp_hash)
+
+                with open('new_fingerprinting_domains.json') as f:
+                    fp_domains = json.load(f)
+                for x in fp_domains:
+                    if x in cur_fp_hash:
+                        fp_hash.append(x)
+                        print("FP-",x)
+                    if x in cur_nfp_hash:
+                        nfp_hash.append(x)
+                        print("NFP-",x)
+
+                #     if x == hash_name:
+                #         cur_top_url = fp_domains[x][1]
+
+                # for x in fp_domains:
+                #     if fp_domains[x][1] == cur_top_url:
+                #         # print(fp_domains[x][0])
+                #         print(x)
+
+        #        with open('nfp_hashes.json') as outfile:
+        #            data = json.load(outfile)
+        #        for x in cur_nfp_hash:
+        #            data.append(x)
+
+                with open('nfp_hashes.json','w') as outfile:
+                    json.dump(nfp_hash, outfile, indent=4)
+
+        #        with open('fp_hashes.json') as outfile:
+        #            data = json.load(outfile)
+        #        for x in cur_fp_hash:
+        #            data.append(x)
+                with open('fp_hashes.json','w') as outfile:
+                    json.dump(fp_hash, outfile, indent=4)
+     
+        shutil.move('nfp_hashes.json', "../Results/" + folderNames[i])
+        shutil.move('fp_hashes.json', "../Results/" + folderNames[i])
 
 
 
