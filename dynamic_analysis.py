@@ -75,6 +75,7 @@ def main():
      
         fp_hash = []
         nfp_hash= []
+        err_list =[]
         folderNames = ["beautifyTools", "clos_comp/simple", "clos_comp/advanced", "draftlogic", "jfogs",
         "js_obfus", "obfus_io/default", "obfus_io/high", "obfus_io/low", "obfus_io/medium", "original"]
         analysis_folder  = "../Results/" + folderNames[i] + "/all_sqlite/"
@@ -93,7 +94,15 @@ def main():
                 filepath = os.path.join( data_folder, filename)
                 os.remove(filepath)
             analysis_directory = os.path.join(analysis_folder, analysis_name)
-
+            
+            con = sqlite3.connect(db_addr)
+            con.row_factory = sqlite3.Row
+            cur = con.cursor()
+            try:
+                cur.execute("SELECT MAX(id) as max_id FROM javascript")
+            else:
+                err_list.append(analysis_name)
+                continue
             convert_sql_tables_to_json.main(analysis_directory)
             extract_features_from_properties_training.main("./output/data", os.path.join(directory, "extra_data"))
             new_create_dynamic_arff_training_file.main("./output/data", os.path.join(directory, "extra_data"))
@@ -143,9 +152,13 @@ def main():
     #            data.append(x)
             with open('fp_hashes.json','w') as outfile:
                 json.dump(fp_hash, outfile, indent=4)
+                
+            with open('err_list.json','w') as outfile:
+                json.dump(err_list, outfile, indent=4)
      
         shutil.move('nfp_hashes.json', "../Results/" + folderNames[i])
         shutil.move('fp_hashes.json', "../Results/" + folderNames[i])
+        shutil.move('err_list.json', "../Results/" + folderNames[i])
 
 
 
