@@ -75,7 +75,7 @@ def main():
      
         fp_hash = []
         nfp_hash= []
-        err_list =[]
+        
         folderNames = ["beautifyTools", "clos_comp/simple", "clos_comp/advanced", "draftlogic", "jfogs",
         "js_obfus", "obfus_io/default", "obfus_io/high", "obfus_io/low", "obfus_io/medium", "original"]
         analysis_folder  = "../Results/" + folderNames[i] + "/all_sqlite/"
@@ -147,12 +147,12 @@ def main():
             with open('fp_hashes.json','w') as outfile:
                 json.dump(fp_hash, outfile, indent=4)
                 
-            with open('err_list.json','w') as outfile:
-                json.dump(err_list, outfile, indent=4)
+            #with open('err_list.json','w') as outfile:
+                #json.dump(err_list, outfile, indent=4)
      
         shutil.move('nfp_hashes.json', "../Results/" + folderNames[i])
         shutil.move('fp_hashes.json', "../Results/" + folderNames[i])
-        shutil.move('err_list.json', "../Results/" + folderNames[i])
+        #shutil.move('err_list.json', "../Results/" + folderNames[i])
 
 
 
