@@ -114,15 +114,17 @@ def main():
             get_fp_inst_num(results_file, fp_list)
             get_fp_hashes(fp_list,fp_hash,nfp_hash)
 
-            with open('new_fingerprinting_domains.json') as f:
-                fp_domains = json.load(f)
-            for x in fp_domains:
-                if x in cur_fp_hash:
-                    fp_hash.append(x)
-                    print("FP-",x)
-                if x in cur_nfp_hash:
-                    nfp_hash.append(x)
-                    print("NFP-",x)
+                
+    # check if the hash is the one we replaced
+            #with open('new_fingerprinting_domains.json') as f:
+                #fp_domains = json.load(f)
+            #for x in fp_domains:
+                #if x in cur_fp_hash:
+                    #fp_hash.append(x)
+                    #print("FP-",x)
+                #if x in cur_nfp_hash:
+                    #nfp_hash.append(x)
+                    #print("NFP-",x)
 
             #     if x == hash_name:
             #         cur_top_url = fp_domains[x][1]
@@ -132,6 +134,8 @@ def main():
             #         # print(fp_domains[x][0])
             #         print(x)
 
+                
+    # loading json
     #        with open('nfp_hashes.json') as outfile:
     #            data = json.load(outfile)
     #        for x in cur_nfp_hash:
