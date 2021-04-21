@@ -69,9 +69,9 @@ def get_fp_hashes(fp_list, fp_hash,nfp_hash):
 
 
 def main():
-    for i in range(11):
-        if i == 0:
-                continue
+    for i in range(2,11):
+      #  if i == 0:
+       #         continue
      
         fp_hash = []
         nfp_hash= []

@@ -350,7 +350,7 @@ def main(db):
     analysis_directory = os.path.join("./", analysis_name)
     data_directory = "./data"
     file_name = "javascript"
-    input_partition_size = int(20)
+    input_partition_size = int(100)
 
     if not os.path.exists(analysis_directory):
         os.makedirs(analysis_directory)
