@@ -1,1 +1,54 @@
-{}
+{
+    "1|https://akipress.org/|https://st-1.akipress.org/js/j.1432028716.js": {
+        "id_index": "1",
+        "partition_index": 1
+    },
+    "1|https://akipress.org/|https://akipress.org/": {
+        "id_index": "2",
+        "partition_index": 1
+    },
+    "1|https://akipress.org/|https://online.akipress.org/counter/?getjs&v1_2": {
+        "id_index": "3",
+        "partition_index": 1
+    },
+    "1|https://akipress.org/|https://st-1.akipress.org/who/js/flickity.pkgd.min.js": {
+        "id_index": "4",
+        "partition_index": 1
+    },
+    "1|https://akipress.org/|https://aaa5.akipress.org/www/delivery/asyncjs.php": {
+        "id_index": "5",
+        "partition_index": 1
+    },
+    "1|https://akipress.org/|https://d31qbv1cthcecs.cloudfront.net/atrk.js": {
+        "id_index": "6",
+        "partition_index": 1
+    },
+    "1|https://akipress.org/|https://www.google-analytics.com/analytics.js": {
+        "id_index": "7",
+        "partition_index": 1
+    },
+    "1|https://akipress.org/|https://st-1.akipress.org/plugin/jquery/jquery-1.7.1.min.js": {
+        "id_index": "8",
+        "partition_index": 1
+    },
+    "1|https://akipress.org/|https://mc.yandex.ru/metrika/watch.js": {
+        "id_index": "9",
+        "partition_index": 1
+    },
+    "1|https://akipress.org/|https://top-fwz1.mail.ru/js/code.js": {
+        "id_index": "10",
+        "partition_index": 1
+    },
+    "1|https://akipress.org/|https://www.tazabek.kg/ui-js/highcharts.js": {
+        "id_index": "11",
+        "partition_index": 1
+    },
+    "1|https://akipress.org/|https://akipress.org/dolbor/covid-19/inc/results.php?embed=1&hl=ru&view=reg": {
+        "id_index": "12",
+        "partition_index": 1
+    },
+    "1|https://akipress.org/|": {
+        "id_index": "13",
+        "partition_index": 1
+    }
+}

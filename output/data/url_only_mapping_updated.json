@@ -1,1 +1,80 @@
-{}
+{
+"https://st-1.akipress.org/js/j.1432028716.js": {
+"old_key": "1|https://akipress.org/|https://st-1.akipress.org/js/j.1432028716.js",
+"id_index": "1",
+"partition_index": 1,
+"content_hash": "4e1b4572477c024e40dcf65aef7ecf35"
+},
+"https://akipress.org/": {
+"old_key": "1|https://akipress.org/|https://akipress.org/",
+"id_index": "2",
+"partition_index": 1,
+"content_hash": "7eaa858bdf1fa731ff4cf7f036573c39"
+},
+"https://online.akipress.org/counter/?getjs&v1_2": {
+"old_key": "1|https://akipress.org/|https://online.akipress.org/counter/?getjs&v1_2",
+"id_index": "3",
+"partition_index": 1,
+"content_hash": "8689e2c92eae99740732cce001c699a6"
+},
+"https://st-1.akipress.org/who/js/flickity.pkgd.min.js": {
+"old_key": "1|https://akipress.org/|https://st-1.akipress.org/who/js/flickity.pkgd.min.js",
+"id_index": "4",
+"partition_index": 1,
+"content_hash": "2db91c46c53a5242d665b7110d063736"
+},
+"https://aaa5.akipress.org/www/delivery/asyncjs.php": {
+"old_key": "1|https://akipress.org/|https://aaa5.akipress.org/www/delivery/asyncjs.php",
+"id_index": "5",
+"partition_index": 1,
+"content_hash": "bb2a5b21a1c1234b41f2d2def7001b91"
+},
+"https://d31qbv1cthcecs.cloudfront.net/atrk.js": {
+"old_key": "1|https://akipress.org/|https://d31qbv1cthcecs.cloudfront.net/atrk.js",
+"id_index": "6",
+"partition_index": 1,
+"content_hash": "96c08723796affab377d9bb08d631cd0"
+},
+"https://www.google-analytics.com/analytics.js": {
+"old_key": "1|https://akipress.org/|https://www.google-analytics.com/analytics.js",
+"id_index": "7",
+"partition_index": 1,
+"content_hash": "53ee95b384d866e8692bb1aef923b763"
+},
+"https://st-1.akipress.org/plugin/jquery/jquery-1.7.1.min.js": {
+"old_key": "1|https://akipress.org/|https://st-1.akipress.org/plugin/jquery/jquery-1.7.1.min.js",
+"id_index": "8",
+"partition_index": 1,
+"content_hash": "4bab8348a52d17428f684ad1ec3a427e"
+},
+"https://mc.yandex.ru/metrika/watch.js": {
+"old_key": "1|https://akipress.org/|https://mc.yandex.ru/metrika/watch.js",
+"id_index": "9",
+"partition_index": 1,
+"content_hash": "9fc804500d9090b3e6587dc002f4803f"
+},
+"https://top-fwz1.mail.ru/js/code.js": {
+"old_key": "1|https://akipress.org/|https://top-fwz1.mail.ru/js/code.js",
+"id_index": "10",
+"partition_index": 1,
+"content_hash": "3488062d87508b249abd27579009c53e"
+},
+"https://www.tazabek.kg/ui-js/highcharts.js": {
+"old_key": "1|https://akipress.org/|https://www.tazabek.kg/ui-js/highcharts.js",
+"id_index": "11",
+"partition_index": 1,
+"content_hash": "4e034b8fc51eff1f2668bed5e0189c95"
+},
+"https://akipress.org/dolbor/covid-19/inc/results.php?embed=1&hl=ru&view=reg": {
+"old_key": "1|https://akipress.org/|https://akipress.org/dolbor/covid-19/inc/results.php?embed=1&hl=ru&view=reg",
+"id_index": "12",
+"partition_index": 1,
+"content_hash": "8dc72c20b18526429479493996d908d5"
+},
+"": {
+"old_key": "1|https://akipress.org/|",
+"id_index": "13",
+"partition_index": 1,
+"content_hash": ""
+}
+}
