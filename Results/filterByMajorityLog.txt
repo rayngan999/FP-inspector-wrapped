@@ -1,0 +1,47 @@
+Filtered 53 fp hashes in beautifyTools
+Filtered 1713 nfp hashes in beautifyTools
+Filtered 165 fp hashes in clos_comp/simple
+Filtered 7782 nfp hashes in clos_comp/simple
+Filtered 164 fp hashes in clos_comp/advanced
+Filtered 7795 nfp hashes in clos_comp/advanced
+Filtered 60 fp hashes in draftlogic
+Filtered 1634 nfp hashes in draftlogic
+Filtered 158 fp hashes in jfogs
+Filtered 7273 nfp hashes in jfogs
+Filtered 160 fp hashes in js_obfus
+Filtered 7584 nfp hashes in js_obfus
+Filtered 160 fp hashes in obfus_io/default
+Filtered 7702 nfp hashes in obfus_io/default
+Filtered 150 fp hashes in obfus_io/high
+Filtered 7675 nfp hashes in obfus_io/high
+Filtered 142 fp hashes in obfus_io/low
+Filtered 7679 nfp hashes in obfus_io/low
+Filtered 137 fp hashes in obfus_io/medium
+Filtered 7551 nfp hashes in obfus_io/medium
+Filtered 161 fp hashes in original
+Filtered 9002 nfp hashes in original
+
+
+used nonfilter:
+Filtered 140 fp hashes in beautifyTools
+Filtered 7897 nfp hashes in beautifyTools
+Filtered 947 fp hashes in clos_comp/simple
+Filtered 54352 nfp hashes in clos_comp/simple
+Filtered 941 fp hashes in clos_comp/advanced
+Filtered 54449 nfp hashes in clos_comp/advanced
+Filtered 153 fp hashes in draftlogic
+Filtered 7809 nfp hashes in draftlogic
+Filtered 886 fp hashes in jfogs
+Filtered 52183 nfp hashes in jfogs
+Filtered 934 fp hashes in js_obfus
+Filtered 54076 nfp hashes in js_obfus
+Filtered 952 fp hashes in obfus_io/default
+Filtered 54403 nfp hashes in obfus_io/default
+Filtered 923 fp hashes in obfus_io/high
+Filtered 54187 nfp hashes in obfus_io/high
+Filtered 895 fp hashes in obfus_io/low
+Filtered 53869 nfp hashes in obfus_io/low
+Filtered 894 fp hashes in obfus_io/medium
+Filtered 53563 nfp hashes in obfus_io/medium
+Filtered 504 fp hashes in original
+Filtered 39638 nfp hashes in original
